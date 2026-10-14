@@ -48,7 +48,7 @@ Optimized for time-critical embedded deployment at a switching frequency of **20
 ## License
 Copyright (c) 2026 Natchpai.
 
-The hardware design files are licensed under CERN-OHL-W-2.0.
+The hardware design files are licensed under CERN-OHL-S-2.0.
 
 The complete licence text is available in: </br>
 [CERN Open Hardware Licence Version 2 - Weakly Reciprocal](LICENSE)  </br>
