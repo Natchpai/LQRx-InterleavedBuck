@@ -51,6 +51,6 @@ Copyright (c) 2026 Natchpai.
 The hardware design files are licensed under CERN-OHL-S-2.0.
 
 The complete licence text is available in: </br>
-[CERN Open Hardware Licence Version 2 - Weakly Reciprocal](LICENSE)  </br>
+[CERN Open Hardware Licence Version 2 - Strongly Reciprocal](LICENSE)  </br>
 
 * **Project Developer** - *Core Hardware, Embedded Firmware & Control Design* - [@Natchpai](https://github.com/Natchpai)
