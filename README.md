@@ -21,7 +21,7 @@ A two-phase interleaved synchronous buck converter controlled by an STM32G474RET
 | Switching frequency | 200 kHz per phase |
 | Equivalent ripple frequency | 400 kHz with 180° interleaving |
 | Controller | STM32G474RET6, state feedback |
-| Firmware execution time | Approximately 2.7 µs per cycle at a 5 µs sampling period, measured on v1.0 |
+| Firmware execution time | Approximately 1.8µs per cycle at a 5 µs sampling period, measured on v1.0 |
 
 *Specifications describe design targets unless explicitly identified as measured or verified results.*
 
@@ -91,6 +91,19 @@ The design uses two interleaved synchronous buck power phases and an STM32G474RE
 ├── 2Phase_SynchBuck.kicad_pro
 ├── 2Phase_SynchBuck.kicad_sch
 ├── 2Phase_SynchBuck.kicad_pcb
+├── Block_diagram.kicad_sch
+├── Interface_interconnects.kicad_sch
+├── MCU_IOs.kicad_sch
+├── MCU_power.kicad_sch
+├── RevHistory.kicad_sch
+├── Top_hierarchical.kicad_sch
+├── analog_frontEnd.kicad_sch
+├── powerSupplies.kicad_sch
+├── power_connectors.kicad_sch
+├── power_state.kicad_sch
+├── pwr_sequencing.kicad_sch
+├── user_LED.kicad_sch
+├── user_interface.kicad_sch
 ├── Library/
 ├── Templates/
 └── documents/
@@ -124,7 +137,7 @@ Measurements below were taken on the v1.0 physical board.
 | Load regulation | 24 V input, 0–10 A load | 0.124% |
 | Line regulation | 16–28 V input, 10 A fixed load | 0.033% |
 | Maximum efficiency | 16, 24, and 28 V input; 0–10 A load. Peak at 16 V input, 12 V output, and 8 A output load | 97.4% |
-| Firmware execution time | 5 µs sampling period | Approximately 2.7 µs per cycle |
+| Firmware execution time | 5 µs sampling period | Approximately 1.8µs per cycle |
 
 Measurement captures:
 
