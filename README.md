@@ -130,16 +130,21 @@ Measurement captures:
 
 | Efficiency sweep |
 |---|
-| <img src="documents/Images/measure/eff_loss_allVolt.png" alt="Efficiency plot at 16, 24, and 28 V input over a 0–10 A load range" height="400"> |
+| <img src="documents/Images/measure/eff_loss_allVolt.png" alt="Efficiency plot at 16, 24, and 28 V input over a 0–10 A load range" height="350"> |
 
 | 6 A load response | 12 A load response |
 |---|---|
 | <img src="documents/Images/measure/STEP_6A1.png" alt="6 A load response showing output voltage" height ="300"> | <img src="documents/Images/measure/STEP_12A1.png" alt="12 A load response showing output voltage" height ="300"> |
 
-| Current Balance | Zoomed Current Balance |
+| 6 A load & Current Balancing | Zoomed |
 |---|---|
 | <img src="documents/Images/measure/STEP_IL0.png" alt="6 A load response showing output voltage and phase current" height ="300"> | <img src="documents/Images/measure/STEP_IL_zoom0.png" alt="Zoomed view of the 6 A load response shown in STEP_IL0.png" height ="300"> |
 
 ## License
 
-Licensed under the [Apache License 2.0](LICENSE).
+Copyright (c) 2026 Natchpai.
+
+The hardware design files are licensed under CERN-OHL-S-2.0.
+
+The complete licence text is available in: </br>
+[CERN Open Hardware Licence Version 2 - Strongly Reciprocal](LICENSE)
