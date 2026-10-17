@@ -38,7 +38,7 @@ fp-info-cache
 
 # Directories
 
-Manufacturing/Fabrication/Gerber/
+documents/Manufacturing/Fabrication/Gerber
 
 # macOS System Files to Ignore
 .DS_Store
