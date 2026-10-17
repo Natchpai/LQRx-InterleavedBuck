@@ -1,63 +1,67 @@
 # Digitally Controlled Interleaved Buck Converter
 
-[![Hardware](https://img.shields.io/badge/Hardware-STM32G474RET6-blue.svg)](https://www.st.com/en/microcontrollers-microprocessors/stm32g474re.html)
-[![Control Theory](https://img.shields.io/badge/Control-Augmented%20LQR%20-orange.svg)](https://www.mathworks.com/products/control.html)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+A two-phase interleaved synchronous buck converter controlled by an STM32G474RET6. The control approach uses state-space Linear Quadratic Regulator (LQR) feedback.
 
-Digitally controlled **2-Phase Interleaved Synchronous Buck Converter** utilizing a state-space **Linear Quadratic Regulator (LQR)** 
-Optimized for time-critical embedded deployment at a switching frequency of **200 kHz** using the STM32G474 microcontroller.
+<img height="350" alt="Top view of the 2Phase SynchBuck board" src="https://github.com/Natchpai/LQRx_InterleavedBuck/blob/main/documents/Images/Render-Board/2Phase_SynchBuck_Topview_v1-1(Large).png" />
 
-<img height="400" alt="Top Render" src="https://github.com/Natchpai/LQRx_InterleavedBuck/blob/main/Images/Render-Board/2Phase_SynchBuck_Topview.png" /> 
+<img height="350" alt="Top view of the 2Phase SynchBuck board" src="https://github.com/Natchpai/LQRx_InterleavedBuck/blob/main/documents/Images/Render-Board/2Phase_SynchBuck_Bottomview_v1-1(Large).png" />
 
----
 
-## 🚀 Key Features
+## Key Features
 
-*   **2-Phase Interleaved Topology:** Reduce input and output current ripples, yields a **400 kHz** equivalent ripple, allowing for smaller filter components.
-*   **Augmented LQR Control:** Discrete-time State-space control , error-integral and delay compensation matrix.
-*   **Hard Real-Time Execution:** Optimized algorithms execute within **1.8 µs**, inside the 5 µs timing window of the switching cycle.
+- Two interleaved phases, with 180° phase shift.
+- State feedback with integral action and delay compensation.
+- 200 kHz switching frequency per phase, with a 400 kHz equivalent ripple frequency.
 
----
+## Specifications
 
-## 📊 Key Specifications
+| Parameter | Specification |
+| --- | --- |
+| Input voltage | 24 VDC nominal, 28 V maximum |
+| Output voltage | 12 VDC nominal; the reference voltage can be changed |
+| Maximum load current | 20 A total, 10 A per phase |
+| Output power | 200 W+ continuous rating |
+| Switching frequency | 200 kHz per phase |
+| Equivalent ripple frequency | 400 kHz with 180° interleaving |
+| Controller | STM32G474RET6, state feedback |
+| Firmware execution time | Approximately 2.2 µs within a 5 µs timing window |
 
-| Parameter | Nominal Value | Note |
-| :--- | :--- | :--- |
-| **Input Voltage ($V_{in}$)** | 24 VDC | 28V MAX  |
-| **Output Voltage ($V_{out}$)** | 12 VDC | Regulated target reference ($V_{ref}$) can changed. |
-| **Maximum Load Current** | 20 A (10A per phase) | Rated for **200W+** continuous output capability  |
-| **Switching Frequency ($f_{sw}$)** | 200 kHz | **400 kHz** equivalent input/output ripple frequency due to 180° interleaving |
-| **Target Controller** | Full-state Feedback | Mathematical compensation for discrete execution delay  |
-| **Firmware Execution Time** | $\approx 2.2\ \mu s$ | Executed completely within a $5\ \mu s$ timing window |
+These values are design specifications. The README does not document measurements or test results.
 
----
+## Hardware
 
-## Hardware & PCB Architecture
+- High-side MOSFET: OptiMOS-6 BSZ018N04LS6
+- Low-side MOSFET: OptiMOS-6 IQE013N04LM6
+- Power inductors: 10 µH
+- Capacitors: 140 µF
 
-### Power Stage Components
-* **High-Side MOSFET**: OptiMOS-6 BSZ018N04LS6 (Ultra-low $R_{DS(on)}$ for low switching losses)
-* **Low-Side MOSFET**: OptiMOS-6 IQE013N04LM6
-* **Power Inductors**: $10\ \mu\text{H}$
-  
-### PCB Architecture
-- ...
----
+## Control Approach
 
-## Real-Time Scheduling & Timing
-To eliminate jitter, the firmware execution respects a tightly designed digital control cycle layout
-* **$t = 0.0\ \mu s$**: The High-Resolution Timer triggers the dual ADC to sample phase currents and output voltage simultaneously.
-* **$t = 0.0 \to 2.2\ \mu s$**: The MCU computes the discrete LQR full-state feedback law and pre-loads the computed duty cycles into the hardware shadow registers.
-* **$t = 5.0\ \mu s$**: Phase 1 hardware registers latch and update the duty cycle, yielding an exact **$1.0\ T_s$** loop latency.
-* **$t = 7.5\ \mu s$**: Phase 2 hardware registers latch and update, seamlessly handling the fractional **$1.5\ T_s$** loop shift via robust algorithmic design.
+- Delay compensation models computation and ADC sampling delays in the state vector.
+- Integral action adds an error-integral state for output-voltage tracking.
+- Anti-windup clamps the integral accumulator at duty-cycle limits.
 
----
+## Repository Structure
 
-## Control Implementation
-1.  **Digital Delay Augmentation:** Mathematically models and compensates for the computation and ADC sampling delays within the state vector to prevent phase-margin degradation.
-2.  **Integral Action:** Includes an augmented error-integral state to eliminate steady-state tracking error, forcing $V_{out} = V_{ref}$ under varying load conditions.
-3.  **Anti-Windup Protection:** Clamps the integral state accumulator to prevent duty-cycle saturation.
-  
+```text
+2Phase_SynchBuck/
+├── documents/       Supporting images, manufacturing files, schematics, and simulations
+├── Library/         KiCad libraries
+├── Manufacturing/   Manufacturing files
+├── Templates/       Manufacturing templates
+├── 2Phase_SynchBuck.kicad_pro
+├── 2Phase_SynchBuck.kicad_sch
+└── 2Phase_SynchBuck.kicad_pcb
+```
 
-## Author
+## Documentation
 
-* **Project Developer** - *Core Hardware, Embedded Firmware & Control Design* - [@Natchpai](https://github.com/Natchpai)
+- [Assembly drawing](documents/Manufacturing/Assembly/2Phase_SynchBuck-v1.1-24-08-2026__Assembly.pdf)
+- [Bill of materials](documents/Manufacturing/bom/BOM_2Phase_SynchBuck_v1.1_2026-09-01.csv)
+- [Fabrication outputs](documents/Manufacturing/Fabrication/)
+- [Schematic PDF](documents/Schematics/)
+- [Simulation files](documents/Simulation/)
+
+## License
+
+Licensed under the [Apache License 2.0](LICENSE).
