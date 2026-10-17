@@ -130,11 +130,11 @@ Measurement captures:
 
 | Efficiency sweep | 12 A load response |
 |---|---|
-| ![Efficiency plot at 16, 24, and 28 V input over a 0–10 A load range](documents/Images/measure/eff_loss_allVolt.png) | ![12 A load response showing output voltage](documents/Images/measure/STEP_12A1.png) |
+| <img src="documents/Images/measure/eff_loss_allVolt.png" alt="Efficiency plot at 16, 24, and 28 V input over a 0–10 A load range" width="420"> | <img src="documents/Images/measure/STEP_12A1.png" alt="12 A load response showing output voltage" width="420"> |
 
 | 6 A load response | Zoomed 6 A load response |
 |---|---|
-| ![6 A load response showing output voltage and phase current](documents/Images/measure/STEP_IL0.png) | ![Zoomed view of the 6 A load response shown in STEP_IL0.png](documents/Images/measure/STEP_IL_zoom0.png) |
+| <img src="documents/Images/measure/STEP_IL0.png" alt="6 A load response showing output voltage and phase current" width="420"> | <img src="documents/Images/measure/STEP_IL_zoom0.png" alt="Zoomed view of the 6 A load response shown in STEP_IL0.png" width="420"> |
 
 ## License
 
