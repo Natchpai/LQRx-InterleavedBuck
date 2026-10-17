@@ -1,0 +1,2 @@
+# Exclude KiCad per-user project settings from release source archives.
+*.kicad_prl export-ignore
