@@ -140,6 +140,10 @@ Measurement captures:
 |---|---|
 | <img src="documents/Images/measure/STEP_IL0.png" alt="6 A load response showing output voltage and phase current" height ="300"> | <img src="documents/Images/measure/STEP_IL_zoom0.png" alt="Zoomed view of the 6 A load response shown in STEP_IL0.png" height ="300"> |
 
+| Open-loop compute-time test |
+|---|
+| <img src="documents/Images/measure/computeTime-openLoop-test.png" alt="Open-loop compute-time test at 24 V input with no load" height="350"> |
+
 ## License
 
 Copyright (c) 2026 Natchpai.
