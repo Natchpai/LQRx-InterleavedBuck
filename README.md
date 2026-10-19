@@ -3,6 +3,10 @@
 A two-phase interleaved synchronous buck converter controlled by an STM32G474RET6 using state-space Linear Quadratic Regulator (LQR) feedback.
 
 <img src="documents/Images/LQRx_PCBv1.0_compress.jpg" alt="v1.0 physical board" width="700">
+<details>
+<summary>Bottom View</summary>
+<img src="documents/Images/LQRx_PCBv1.0_Bottom_compress.jpg" alt="v1.0 physical board" width="700">
+</details>
 
 ## Key Features
 
@@ -61,13 +65,8 @@ flowchart LR
     class D done
 ```
 
-A human engineer declares phase changes.
+> Slate: not started, Amber: current phase, Green: completed
 
-- Slate: not started, or no phase declared
-- Amber: current phase, under review
-- Green: completed
-
-The diagram is for reference only. It does not enforce gates or approve releases.
 
 ## Hardware Design
 
